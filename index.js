@@ -1,14 +1,14 @@
-function addItems()
+document.getElementById("add").onclick = function addItems()
 {
-    document.getElementById("list").onclick = function ()
-    {
-        // Add item on click
-        // Fill in item name typed in text field
-        var item = document.getElementById("item");
+    // Add item on click
+    // Fill in item name typed in text field
+    var node = document.createElement("li");
+    var itemVal = document.getElementById("item").value;
+    var itemNode = document.createTextNode(itemVal);
 
-        var li = "<li>" + item + "</li>";
+    console.log(itemVal);
+    console.log(itemNode);
 
-        document.getElementById("list").appendChild(li);
-    }
-
+    node.appendChild(itemNode);
+    document.getElementById("list").appendChild(node);
 }
