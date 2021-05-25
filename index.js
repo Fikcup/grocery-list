@@ -7,7 +7,6 @@ addButton.addEventListener("click", addItem);
 
 function addItem(event)
 {
-    console.log("Hello");
     // Prevent form from submitting without a value
     event.preventDefault();
 
@@ -16,8 +15,8 @@ function addItem(event)
 
     // Create new LI
     const newItem = document.createElement("li");
-    newItem.innerText = itemInput;
-    newItem.classList.add("item");
+    newItem.innerText = itemInput.value;
+    newItem.classList.add("li-item");
     itemDiv.appendChild(newItem);
 
     // Cross off item
