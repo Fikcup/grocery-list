@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <body>
     <header>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link rel="stylesheet" href="./assets/index.css">
+        <h1>Grocery List</h1>
     </header>
 
-    <div id="title">
-        <h1>Grocery List</h1>
-    </div>
-
-    <div id="itemDiv">
-        <input type="text" id="item"></input>
-        <button value="Add New" id="add">Add</button>
-    </div>
+    <form>
+        <input type="text" class="item">
+        <button class="add-btn" type="submit">
+            <i class="fas fa-plus-square"></i>
+        </button>
+    </form>
 
     <div id="listDiv">
         <ul id="list"></ul>
-        <button value="Add Quantity" id="quantity">Quantity</button>
+        <button value="delete item" id="delete">
+            <i class="fas fa-trash-alt"></i>
+        </button>
     </div>
 
-    <button value="delete item" id="delete">Delete Item</button>
     <button value="clear list" id="clear">Clear</button>
 
     <script src="index.js"></script>
