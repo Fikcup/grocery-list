@@ -1,9 +1,17 @@
 var quantity;
 const itemInput = document.querySelector(".item-input");
 const addButton = document.querySelector(".add-btn");
+const quantityUpButton = document.querySelector(".quantity-increase-btn");
+const quantityDownButton = document.querySelector(".quantity-decrease-btn");
+const deleteButton = document.querySelector(".delete-btn");
+const crossOffButton = document.querySelector(".complete-btn");
 const list = document.querySelector(".list");
 
 addButton.addEventListener("click", addItem);
+deleteButton.addEventListener("click", deleteItem);
+crossOffButton.addEventListener("click", crossOffItem);
+quantityUpButton.addEventListener("click", quantityUp);
+quantityDownButton.addEventListener("click", quantityDown);
 
 function addItem(event)
 {
@@ -66,4 +74,19 @@ function deleteItem(e)
         const liItem = item.parentElement;
         liItem.classList.toggle('crossOff');
     }
+}
+
+function crossOffItem(e)
+{
+    const crossOff = e.item;
+}
+
+function quantityUp(e)
+{
+    const quantityIncrease = e.target;
+}
+
+function quantityDown(e)
+{
+    const quantityDecrease = e.target;
 }
