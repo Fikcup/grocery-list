@@ -68,25 +68,38 @@ function deleteItem(e)
         const liItem = item.parentElement;
         liItem.remove();
     }
+}
+
+function crossOffItem(e)
+{
+    const crossOff = e.item;
 
     // Cross off
+    if (crossOff.classList[0] === "complete-btn")
     {
         const liItem = item.parentElement;
         liItem.classList.toggle('crossOff');
     }
 }
 
-function crossOffItem(e)
-{
-    const crossOff = e.item;
-}
-
 function quantityUp(e)
 {
     const quantityIncrease = e.target;
+
+    if (quantityIncrease.classList[0] === "quantity-increase-btn")
+    {
+        const liItem = item.parentElement;
+        liItem.quantity++;
+    }
 }
 
 function quantityDown(e)
 {
     const quantityDecrease = e.target;
+
+    if (quantityDecrease.classList[0] === "quantity-decrease-btn")
+    {
+        const liItem = item.parentElement;
+        liItem.quantity--;
+    }
 }
