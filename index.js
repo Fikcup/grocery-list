@@ -22,15 +22,36 @@ function addItem(event)
     // Cross off item
     const crossOffBtn = document.createElement("button");
     crossOffBtn.innerHTML = "<i class='fas fa-check-square'></i>";
-    crossOffBtn.classList.add("add-btn");
+    crossOffBtn.classList.add("complete-btn");
     itemDiv.appendChild(crossOffBtn);
 
     // Delete button
     const deleteBtn = document.createElement("button");
     deleteBtn.innerHTML = "<i class='fas fa-trash-alt'></i>";
-    deleteBtn.classList.add();
+    deleteBtn.classList.add("delete-btn");
     itemDiv.appendChild(deleteBtn);
 
     // Append to UL
     list.appendChild(itemDiv);
+
+    // Clear input field
+    itemInput.value = "";
+}
+
+function deleteItem(e)
+{
+    const item = e.target;
+
+    // Delete item
+    if (item.classList[0] === "delete-btn")
+    {
+        const liItem = item.parentElement;
+        liItem.remove();
+    }
+
+    // Cross off
+    {
+        const liItem = item.parentElement;
+        liItem.classList.toggle('crossOff');
+    }
 }
