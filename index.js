@@ -1,17 +1,9 @@
-var quantity;
+var quantity = 1;
 const itemInput = document.querySelector(".item-input");
 const addButton = document.querySelector(".add-btn");
-const quantityUpButton = document.querySelector(".quantity-increase-btn");
-const quantityDownButton = document.querySelector(".quantity-decrease-btn");
-const deleteButton = document.querySelector(".delete-btn");
-const crossOffButton = document.querySelector(".complete-btn");
 const list = document.querySelector(".list");
 
 addButton.addEventListener("click", addItem);
-deleteButton.addEventListener("click", deleteItem);
-crossOffButton.addEventListener("click", crossOffItem);
-quantityUpButton.addEventListener("click", quantityUp);
-quantityDownButton.addEventListener("click", quantityDown);
 
 function addItem(event)
 {
@@ -39,6 +31,12 @@ function addItem(event)
     deleteBtn.classList.add("delete-btn");
     itemDiv.appendChild(deleteBtn);
 
+    // Quantity display
+    const quantityDisplay = document.createElement("p");
+    quantityDisplay.innerHTML = quantity;
+    quantityDisplay.classList.add("quantity");
+    itemDiv.appendChild(quantityDisplay);
+
     // Quantity up button
     const quantityIncreaseBtn = document.createElement("button");
     quantityIncreaseBtn.innerHTML = "<i class='fas fa-caret-square-up'></i>";
@@ -56,11 +54,23 @@ function addItem(event)
 
     // Clear input field
     itemInput.value = "";
+
+    // Query Selector for created buttons
+    const quantityUpButton = document.querySelector(".quantity-increase-btn");
+    const quantityDownButton = document.querySelector(".quantity-decrease-btn");
+    const deleteButton = document.querySelector(".delete-btn");
+    const crossOffButton = document.querySelector(".complete-btn");
+
+    // Event listeners for new buttons
+    deleteButton.addEventListener("click", deleteItem);
+    crossOffButton.addEventListener("click", crossOffItem);
+    quantityUpButton.addEventListener("click", quantityUp);
+    quantityDownButton.addEventListener("click", quantityDown); 
 }
 
-function deleteItem(e)
+function deleteItem(event)
 {
-    const item = e.target;
+    const item = event.target;
 
     // Delete targeted item
     if (item.classList[0] === "delete-btn")
@@ -70,9 +80,9 @@ function deleteItem(e)
     }
 }
 
-function crossOffItem(e)
+function crossOffItem(event)
 {
-    const crossOff = e.item;
+    const crossOff = event.target;
 
     // Cross off targeted element
     if (crossOff.classList[0] === "complete-btn")
@@ -82,9 +92,9 @@ function crossOffItem(e)
     }
 }
 
-function quantityUp(e)
+function quantityUp(event)
 {
-    const quantityIncrease = e.target;
+    const quantityIncrease = event.target;
 
     // Increase quantity of targeted element
     if (quantityIncrease.classList[0] === "quantity-increase-btn")
@@ -94,9 +104,9 @@ function quantityUp(e)
     }
 }
 
-function quantityDown(e)
+function quantityDown(event)
 {
-    const quantityDecrease = e.target;
+    const quantityDecrease = event.target;
 
     // Decrease quantity of targeted element
     if (quantityDecrease.classList[0] === "quantity-decrease-btn")
