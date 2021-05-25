@@ -13,4 +13,10 @@
 <ul>
     <li>Remove item displayed opon hovering</li>
     <li>Clear entire list</li>
+    <li>Cross off list button</li>
+</ul>
+
+### Advanced
+<ul>
+    <li>Create a local storage/session storage of the list</li>
 </ul>
