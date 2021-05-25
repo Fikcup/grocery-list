@@ -1,3 +1,5 @@
+var quantity;
+
 document.getElementById("add").onclick = function addItems()
 {
     var node = document.createElement("li");
@@ -9,6 +11,8 @@ document.getElementById("add").onclick = function addItems()
 
     node.appendChild(itemNode);
     document.getElementById("list").appendChild(node);
+
+    addQuantity();
 }
 
 document.getElementById("clear").onclick = function clearList()
@@ -16,7 +20,15 @@ document.getElementById("clear").onclick = function clearList()
     document.getElementById("list").innerHTML = "";
 }
 
-function deleteItem()
+function addQuantity()
 {
-    // On click delete associated item
+    quantity = document.createTextNode("1");
+
+    document.getElementById("list").appendChild(quantity);
+}
+
+document.getElementById("quantity").onclick = function addMoreOnClick()
+{
+    quantity.value += 1;
+    document.getElementById("list").appendChild(quantity);
 }
