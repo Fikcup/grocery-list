@@ -80,6 +80,7 @@ function deleteItem(event)
     {
         const liItem = item.parentElement;
         liItem.remove();
+        localStorage.removeItem("liItem");
     }
     // Delete in local storage as well
 }
@@ -137,4 +138,9 @@ function saveLocally(item)
     localStorage.setItem("items", JSON.stringify(items));
 
     // Need to add visual saving functionality
+}
+
+function onLoad()
+{
+    // Onload, load the locally stored items to the list
 }
