@@ -19,6 +19,9 @@ function addItem(event)
     newItem.classList.add("li-item");
     itemDiv.appendChild(newItem);
 
+    // Add item to local storage
+    saveLocally(itemInput.value);
+
     // Cross off item
     const crossOffBtn = document.createElement("button");
     crossOffBtn.innerHTML = "<i class='fas fa-check-square'></i>";
@@ -78,6 +81,7 @@ function deleteItem(event)
         const liItem = item.parentElement;
         liItem.remove();
     }
+    // Delete in local storage as well
 }
 
 function crossOffItem(event)
@@ -88,7 +92,7 @@ function crossOffItem(event)
     if (crossOff.classList[0] === "complete-btn")
     {
         const liItem = item.parentElement;
-        liItem.classList.toggle('crossOff');
+        liItem.style.textDecoration = line-through;
     }
 }
 
@@ -114,4 +118,23 @@ function quantityDown(event)
         const liItem = item.parentElement;
         liItem.quantity--;
     }
+}
+
+function saveLocally(item)
+{
+    let items;
+
+    if (localStorage.getItem("items") === null)
+    {
+        items = [];
+    }
+    else
+    {
+        items = JSON.parse(localStorage.getItem("items"));
+    }
+    // Saving items on a local array to save grocery list on refresh
+    items.push(item);
+    localStorage.setItem("items", JSON.stringify(items));
+
+    // Need to add visual saving functionality
 }
