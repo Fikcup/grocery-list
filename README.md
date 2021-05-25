@@ -1,4 +1,5 @@
 # Grocery List
+<p>Grocery List developed using HTML, CSS, and JavaScript. The overall goal of the project is to work with creating elements and appending elements to each other.</p>
 
 ## Goals
 
