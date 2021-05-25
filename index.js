@@ -62,7 +62,7 @@ function deleteItem(e)
 {
     const item = e.target;
 
-    // Delete item
+    // Delete targeted item
     if (item.classList[0] === "delete-btn")
     {
         const liItem = item.parentElement;
@@ -74,7 +74,7 @@ function crossOffItem(e)
 {
     const crossOff = e.item;
 
-    // Cross off
+    // Cross off targeted element
     if (crossOff.classList[0] === "complete-btn")
     {
         const liItem = item.parentElement;
@@ -86,6 +86,7 @@ function quantityUp(e)
 {
     const quantityIncrease = e.target;
 
+    // Increase quantity of targeted element
     if (quantityIncrease.classList[0] === "quantity-increase-btn")
     {
         const liItem = item.parentElement;
@@ -97,6 +98,7 @@ function quantityDown(e)
 {
     const quantityDecrease = e.target;
 
+    // Decrease quantity of targeted element
     if (quantityDecrease.classList[0] === "quantity-decrease-btn")
     {
         const liItem = item.parentElement;
