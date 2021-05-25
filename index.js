@@ -1,34 +1,37 @@
 var quantity;
+const itemInput = document.querySelector(".item-input");
+const addButton = document.querySelector(".add-btn");
+const list = document.querySelector(".list");
 
-document.getElementById("add").onclick = function addItems()
+addButton.addEventListener("click", addItem);
+
+function addItem(event)
 {
-    var node = document.createElement("li");
-    var itemVal = document.getElementById("item").value;
-    var itemNode = document.createTextNode(itemVal);
+    console.log("Hello");
+    // Prevent form from submitting without a value
+    event.preventDefault();
 
-    console.log(itemVal);
-    console.log(itemNode);
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add("item");
 
-    node.appendChild(itemNode);
-    document.getElementById("list").appendChild(node);
+    // Create new LI
+    const newItem = document.createElement("li");
+    newItem.innerText = itemInput;
+    newItem.classList.add("item");
+    itemDiv.appendChild(newItem);
 
-    addQuantity();
-}
+    // Cross off item
+    const crossOffBtn = document.createElement("button");
+    crossOffBtn.innerHTML = "<i class='fas fa-check-square'></i>";
+    crossOffBtn.classList.add("add-btn");
+    itemDiv.appendChild(crossOffBtn);
 
-document.getElementById("clear").onclick = function clearList()
-{
-    document.getElementById("list").innerHTML = "";
-}
+    // Delete button
+    const deleteBtn = document.createElement("button");
+    deleteBtn.innerHTML = "<i class='fas fa-trash-alt'></i>";
+    deleteBtn.classList.add();
+    itemDiv.appendChild(deleteBtn);
 
-function addQuantity()
-{
-    quantity = document.createTextNode("1");
-
-    document.getElementById("list").appendChild(quantity);
-}
-
-document.getElementById("quantity").onclick = function addMoreOnClick()
-{
-    quantity.value += 1;
-    document.getElementById("list").appendChild(quantity);
+    // Append to UL
+    list.appendChild(itemDiv);
 }
