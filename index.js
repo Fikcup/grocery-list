@@ -76,9 +76,12 @@ function deleteItem(event)
     const item = event.target;
 
     // Delete targeted item
-    const liItem = item.parentElement;
-    liItem.remove();
-    localStorage.removeItem("liItem");
+    if (item.classList[0] === "delete-btn")
+    {
+        const liItem = item.parentElement;
+        liItem.remove();
+        localStorage.removeItem("liItem");
+    }
     // Delete in local storage as well
 }
 
@@ -87,8 +90,11 @@ function crossOffItem(event)
     const crossOff = event.target;
 
     // Cross off targeted element
-    const liItem = item.parentElement;
-    liItem.style.textDecoration = line-through;
+    if (crossOff.classList[0] === "complete-btn")
+    {
+        const liItem = item.parentElement;
+        liItem.style.textDecoration = line-through;
+    }
 }
 
 function quantityUp(event)
@@ -96,8 +102,11 @@ function quantityUp(event)
     const quantityIncrease = event.target;
 
     // Increase quantity of targeted element
-    const liItem = item.parentElement;
-    liItem.quantity++;
+    if (quantityIncrease.classList[0] === "quantity-increase-btn")
+    {
+        const liItem = item.parentElement;
+        liItem.quantity++;
+    }
 }
 
 function quantityDown(event)
@@ -105,8 +114,11 @@ function quantityDown(event)
     const quantityDecrease = event.target;
 
     // Decrease quantity of targeted element
-    const liItem = item.parentElement;
-    liItem.quantity--;
+    if (quantityDecrease.classList[0] === "quantity-decrease-btn")
+    {
+        const liItem = item.parentElement;
+        liItem.quantity--;
+    }
 }
 
 function saveLocally(item)
