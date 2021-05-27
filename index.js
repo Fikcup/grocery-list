@@ -3,6 +3,7 @@ const itemInput = document.querySelector(".item-input");
 const addButton = document.querySelector(".add-btn");
 const list = document.querySelector(".list");
 
+document.addEventListener('DOMContentLoaded', onLoad);
 addButton.addEventListener("click", addItem);
 
 function addItem(event)
@@ -142,5 +143,60 @@ function saveLocally(item)
 
 function onLoad()
 {
-    // Onload, load the locally stored items to the list
+    console.log("Hello");
+    let items;
+
+    if (localStorage.getItem("items") === null)
+    {
+        items = [];
+    }
+    else
+    {
+        items = JSON.parse(localStorage.getItem("items"));
+    }
+
+    items.forEach(function(items)
+    {
+        const itemDiv = document.createElement("div");
+        itemDiv.classList.add("item");
+
+        // Create new LI
+        const newItem = document.createElement("li");
+        newItem.innerText = items.value;
+        newItem.classList.add("li-item");
+        itemDiv.appendChild(newItem);
+
+        // Cross off item
+        const crossOffBtn = document.createElement("button");
+        crossOffBtn.innerHTML = "<i class='fas fa-check-square'></i>";
+        crossOffBtn.classList.add("complete-btn");
+        itemDiv.appendChild(crossOffBtn);
+
+        // Delete button
+        const deleteBtn = document.createElement("button");
+        deleteBtn.innerHTML = "<i class='fas fa-trash-alt'></i>";
+        deleteBtn.classList.add("delete-btn");
+        itemDiv.appendChild(deleteBtn);
+
+        // Quantity display
+        const quantityDisplay = document.createElement("p");
+        quantityDisplay.innerHTML = quantity;
+        quantityDisplay.classList.add("quantity");
+        itemDiv.appendChild(quantityDisplay);
+
+        // Quantity up button
+        const quantityIncreaseBtn = document.createElement("button");
+        quantityIncreaseBtn.innerHTML = "<i class='fas fa-caret-square-up'></i>";
+        quantityIncreaseBtn.classList.add("quantity-increase-btn");
+        itemDiv.appendChild(quantityIncreaseBtn);
+
+        // Quantity down button
+        const quantityDecreaseBtn = document.createElement("button");
+        quantityDecreaseBtn.innerHTML = "<i class='fas fa-caret-square-down'></i>";
+        quantityDecreaseBtn.classList.add("quantity-decrease-btn");
+        itemDiv.appendChild(quantityDecreaseBtn); 
+
+        // Append to UL
+        list.appendChild(itemDiv);
+    });
 }
