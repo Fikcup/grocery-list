@@ -143,7 +143,6 @@ function saveLocally(item)
 
 function onLoad()
 {
-    console.log("Hello");
     let items;
 
     if (localStorage.getItem("items") === null)
