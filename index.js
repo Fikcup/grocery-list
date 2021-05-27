@@ -154,6 +154,7 @@ function onLoad()
         items = JSON.parse(localStorage.getItem("items"));
     }
 
+    // On refresh or web page load grab items in session storage and display
     items.forEach(function(items)
     {
         const itemDiv = document.createElement("div");
@@ -161,7 +162,7 @@ function onLoad()
 
         // Create new LI
         const newItem = document.createElement("li");
-        newItem.innerText = items.value;
+        newItem.innerText = items;
         newItem.classList.add("li-item");
         itemDiv.appendChild(newItem);
 
