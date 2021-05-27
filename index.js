@@ -2,9 +2,11 @@ var quantity = 1;
 const itemInput = document.querySelector(".item-input");
 const addButton = document.querySelector(".add-btn");
 const list = document.querySelector(".list");
+const clearButton = document.querySelector(".clear");
 
 document.addEventListener('DOMContentLoaded', onLoad);
 addButton.addEventListener("click", addItem);
+document.addEventListener("click", clearAll);
 
 function addItem(event)
 {
@@ -120,6 +122,12 @@ function quantityDown(event)
         const liItem = item.parentElement;
         liItem.quantity--;
     }
+}
+
+function clearAll()
+{
+    document.getElementById("listDiv").innerHTML = "";
+    localStorage.clear();
 }
 
 function saveLocally(item)
