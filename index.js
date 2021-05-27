@@ -134,6 +134,7 @@ function saveLocally(item)
 {
     let items;
 
+    // If there is no local storage, create it. Else, retrieve it.
     if (localStorage.getItem("items") === null)
     {
         items = [];
@@ -142,17 +143,17 @@ function saveLocally(item)
     {
         items = JSON.parse(localStorage.getItem("items"));
     }
+
     // Saving items on a local array to save grocery list on refresh
     items.push(item);
     localStorage.setItem("items", JSON.stringify(items));
-
-    // Need to add visual saving functionality
 }
 
 function onLoad()
 {
     let items;
 
+    // If there is no local storage, create it. Else, retrieve it.
     if (localStorage.getItem("items") === null)
     {
         items = [];
