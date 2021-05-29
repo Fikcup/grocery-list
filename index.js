@@ -81,9 +81,8 @@ function deleteItem(event)
     // Delete targeted item
     if (item.classList[0] === "delete-btn")
     {
-        const liItem = item.parentElement;
-        liItem.remove();
-        localStorage.getItem(liItem).splice();  
+        const liItem = document.querySelector(".li-item");
+        liItem.remove(); 
     }
     // Delete in local storage as well
 }
@@ -108,8 +107,8 @@ function quantityUp(event)
     // Increase quantity of targeted element
     if (quantityIncrease.classList[0] === "quantity-increase-btn")
     {
-        const liItem = item.parentElement;
-        liItem.quantity++;
+        const quantityElement = document.querySelector(".quantity");
+        quantityElement.quantity++;
     }
 }
 
@@ -120,8 +119,8 @@ function quantityDown(event)
     // Decrease quantity of targeted element
     if (quantityDecrease.classList[0] === "quantity-decrease-btn")
     {
-        const liItem = item.parentElement;
-        liItem.quantity--;
+        const quantityElement = document.querySelector(".quantity");
+        quantityElement.quantity--;
     }
 }
 
