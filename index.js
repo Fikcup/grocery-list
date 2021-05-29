@@ -6,7 +6,7 @@ const clearButton = document.querySelector(".clear");
 
 document.addEventListener('DOMContentLoaded', onLoad);
 addButton.addEventListener("click", addItem);
-document.addEventListener("click", clearAll);
+clearButton.addEventListener("click", clearAll);
 
 function addItem(event)
 {
@@ -83,7 +83,7 @@ function deleteItem(event)
     {
         const liItem = item.parentElement;
         liItem.remove();
-        localStorage.removeItem("liItem");
+        localStorage.getItem(liItem).splice();  
     }
     // Delete in local storage as well
 }
