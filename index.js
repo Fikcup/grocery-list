@@ -1,3 +1,10 @@
+// Next steps
+
+/*
+    * Fix DOM calls in quantity, delete, and cross off functions
+    * Move quantity into addItem to be created with each new item
+*/
+
 var quantity = 1;
 const itemInput = document.querySelector(".item-input");
 const addButton = document.querySelector(".add-btn");
@@ -81,8 +88,8 @@ function deleteItem(event)
     // Delete targeted item
     if (item.classList[0] === "delete-btn")
     {
-        const liItem = document.querySelector(".li-item");
-        liItem.remove(); 
+        const liItem = item.parentElement; 
+        localStorage.removeItem(liItem);
     }
     // Delete in local storage as well
 }
