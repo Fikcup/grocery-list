@@ -95,7 +95,8 @@ function crossOffItem(event)
     // Cross off targeted element
     if (crossOff.classList[0] === "complete-btn")
     {
-        const liItem = item.parentElement;
+        const liItem = item.nextSibling;
+        console.log(liItem);
         liItem.style.textDecoration = line-through;
     }
 }
@@ -207,5 +208,17 @@ function onLoad()
 
         // Append to UL
         list.appendChild(itemDiv);
+
+         // Query Selector for created buttons
+        const quantityUpButton = document.querySelector(".quantity-increase-btn");
+        const quantityDownButton = document.querySelector(".quantity-decrease-btn");
+        const deleteButton = document.querySelector(".delete-btn");
+        const crossOffButton = document.querySelector(".complete-btn");
+
+        // Event listeners for new buttons
+        deleteButton.addEventListener("click", deleteItem);
+        crossOffButton.addEventListener("click", crossOffItem);
+        quantityUpButton.addEventListener("click", quantityUp);
+        quantityDownButton.addEventListener("click", quantityDown); 
     });
 }
