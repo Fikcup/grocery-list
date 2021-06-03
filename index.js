@@ -85,12 +85,17 @@ function deleteItem(event)
 {
     const item = event.target;
 
-    // Delete targeted item
+    if (item.classList[0] === "delete-btn")
+    {
+        const liItem = item.parentElement; 
+        liItem.remove();
+    }
 
+    // Delete targeted item from local storage
     function removeLocalItems(liItem)
     {
         let items;
-        // Delete in local storage as well
+
         if (localStorage.getItem("items") === null)
         {
             items = [];
@@ -110,12 +115,6 @@ function deleteItem(event)
             console.log(items[i]);
             console.log(itemRemove);
             console.log(liItem);
-        }
-
-        if (item.classList[0] === "delete-btn")
-        {
-            const liItem = item.parentElement; 
-            liItem.remove();
         }
     }
 
