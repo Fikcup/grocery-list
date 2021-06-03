@@ -85,6 +85,9 @@ function addItem(event)
 function deleteItem(event)
 {
     const item = event.target;
+    var placeHolder = item.previousSibling;
+    var itemToRemove = placeHolder.previousSibling;
+    var itemRemoveValue = itemToRemove.innerText;
 
     if (item.classList[0] === "delete-btn")
     {
@@ -109,14 +112,12 @@ function deleteItem(event)
 
         for (let i = 0; i < items.length; i++)
         {
-            if (items[i] == liItem)
+            if (items[i] == itemRemoveValue)
             {
-                var itemRemove = items[i];
-                localStorage.removeItem(itemRemove);
+                localStorage.removeItem(itemRemoveValue);
             }
             console.log(items[i]);
-            console.log(itemRemove);
-            console.log(liItem);
+            console.log(itemRemoveValue);
         }
     }
 
