@@ -5,7 +5,7 @@
     * Move quantity into addItem to be created with each new item
 */
 
-var quantity = 1;
+var quantity = 0;
 const itemInput = document.querySelector(".item-input");
 const addButton = document.querySelector(".add-btn");
 const list = document.querySelector(".list");
@@ -86,12 +86,40 @@ function deleteItem(event)
     const item = event.target;
 
     // Delete targeted item
-    if (item.classList[0] === "delete-btn")
+
+    function removeLocalItems(liItem)
     {
-        const liItem = item.parentElement; 
-        localStorage.removeItem(liItem);
+        let items;
+        // Delete in local storage as well
+        if (localStorage.getItem("items") === null)
+        {
+            items = [];
+        }
+        else
+        {
+            items = JSON.parse(localStorage.getItem("items"));
+        }
+
+        for (let i = 0; i < items.length; i++)
+        {
+            if (items[i] == liItem)
+            {
+                var itemRemove = items[i];
+                localStorage.removeItem(itemRemove);
+            }
+            console.log(items[i]);
+            console.log(itemRemove);
+            console.log(liItem);
+        }
+
+        if (item.classList[0] === "delete-btn")
+        {
+            const liItem = item.parentElement; 
+            liItem.remove();
+        }
     }
-    // Delete in local storage as well
+
+    removeLocalItems();
 }
 
 function crossOffItem(event)
@@ -114,8 +142,8 @@ function quantityUp(event)
     // Increase quantity of targeted element
     if (quantityIncrease.classList[0] === "quantity-increase-btn")
     {
-        const quantityElement = document.querySelector(".quantity");
-        quantityElement.quantity++;
+        const quantityElement = quantityIncrease.previousSibling.innerHTML;
+        console.log(quantityElement);
     }
 }
 
