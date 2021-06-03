@@ -92,6 +92,7 @@ function deleteItem(event)
     }
 
     // Delete targeted item from local storage
+    // NOT FUNCTIONAL
     function removeLocalItems(liItem)
     {
         let items;
@@ -121,6 +122,7 @@ function deleteItem(event)
     removeLocalItems();
 }
 
+// NOT FUNCTIONAL
 function crossOffItem(event)
 {
     const crossOff = event.target;
@@ -134,6 +136,7 @@ function crossOffItem(event)
     }
 }
 
+// NOT FUNCTIONAL
 function quantityUp(event)
 {
     const quantityIncrease = event.target;
@@ -146,6 +149,7 @@ function quantityUp(event)
     }
 }
 
+// NOT FUNCTIONAL
 function quantityDown(event)
 {
     const quantityDecrease = event.target;
