@@ -114,7 +114,9 @@ function deleteItem(event)
         {
             if (items[i] == itemRemoveValue)
             {
-                localStorage.splice(i, 1);
+                var arr = localStorage;
+                arr = arr.splice(i, 1);
+                localStorage = arr;
             }
             console.log(items[i]);
             console.log(itemRemoveValue);
