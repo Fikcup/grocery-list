@@ -114,7 +114,7 @@ function deleteItem(event)
         {
             if (items[i] == itemRemoveValue)
             {
-                localStorage.removeItem(itemRemoveValue);
+                localStorage.splice(i, 1);
             }
             console.log(items[i]);
             console.log(itemRemoveValue);
@@ -128,13 +128,14 @@ function deleteItem(event)
 function crossOffItem(event)
 {
     const crossOff = event.target;
+    const targetedElement = crossOff.previousSibling;
+    const itemText = targetedElement.innerHTML;
 
     // Cross off targeted element
     if (crossOff.classList[0] === "complete-btn")
     {
-        const liItem = item.nextSibling;
-        console.log(liItem);
-        liItem.style.textDecoration = line-through;
+        console.log(itemText);
+        itemText.strike();
     }
 }
 
