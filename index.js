@@ -54,6 +54,7 @@ function addItem(event)
     quantityInput.type = "text";
     quantityInput.classList.add('quantity');
     quantityInput.value = "1";
+    itemDiv.appendChild(quantityInput);
 
     // Quantity up button
     const quantityIncreaseBtn = document.createElement("button");
@@ -268,6 +269,7 @@ function onLoad()
         quantityInput.type = "text";
         quantityInput.classList.add('quantity');
         quantityInput.value = quantities;
+        itemDiv.appendChild(quantityInput);
 
         // Quantity up button
         const quantityIncreaseBtn = document.createElement("button");
