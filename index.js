@@ -149,28 +149,20 @@ function crossOffItem(event)
     }
 }
 
-// NOT FUNCTIONAL
-function quantityUp(event)
+function quantityUp()
 {
-    const quantityIncrease = event.target;
+    var quantity = document.querySelector(".quantity").value;
+    quantity++;
 
-    // Increase quantity of targeted element
-    if (quantityIncrease.classList[0] === "quantity-increase-btn")
-    {
-       // Restart
-    }
+    document.querySelector(".quantity").value = quantity;
 }
 
-// NOT FUNCTIONAL
-function quantityDown(event)
+function quantityDown()
 {
-    const quantityDecrease = event.target;
+    var quantity = document.querySelector(".quantity").value;
+    quantity--;
 
-    // Decrease quantity of targeted element
-    if (quantityDecrease.classList[0] === "quantity-decrease-btn")
-    {
-        // Restart
-    }
+    document.querySelector(".quantity").value = quantity;
 }
 
 function clearAll()
