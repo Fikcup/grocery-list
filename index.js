@@ -1,9 +1,8 @@
 // Next steps
 
 /*
-    * Fix DOM calls in quantity, delete, and cross off functions
+    * Fix DOM calls in quantity function
     * Move quantity into addItem to be created with each new item
-    * Get the removeLocalStorage function to work
 */
 
 var quantity = 0;
