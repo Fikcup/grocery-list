@@ -43,9 +43,6 @@ function addItem(event)
     deleteBtn.classList.add("delete-btn");
     itemDiv.appendChild(deleteBtn);
 
-    // Add quantity to local storage
-    saveQuantityLocally(quantity);
-
     // Quantity down button
     const quantityDecreaseBtn = document.createElement("button");
     quantityDecreaseBtn.innerHTML = "<i class='fas fa-caret-square-down'></i>";
@@ -63,6 +60,9 @@ function addItem(event)
     quantityIncreaseBtn.innerHTML = "<i class='fas fa-caret-square-up'></i>";
     quantityIncreaseBtn.classList.add("quantity-increase-btn");
     itemDiv.appendChild(quantityIncreaseBtn);
+
+    // Add quantity to local storage
+    saveQuantityLocally(quantityInput.value);
 
     // Append to UL
     list.appendChild(itemDiv);
@@ -267,7 +267,7 @@ function onLoad()
         const quantityInput = document.createElement("input");
         quantityInput.type = "text";
         quantityInput.classList.add('quantity');
-        quantityInput.value = "1";
+        quantityInput.value = quantities;
 
         // Quantity up button
         const quantityIncreaseBtn = document.createElement("button");
