@@ -1,7 +1,6 @@
 // Next steps
 
 /*
-    * Make the quantity value get changed proportionately instead of changing to 0 or 2 respectively
     * Have the quantity value change in localStorage on click
 */
 
