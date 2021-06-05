@@ -99,24 +99,31 @@ function deleteItem(event)
     }
 
     // Delete targeted item from local storage
-    function removeLocalItems(liItem)
+    function removeLocalItems()
     {
         let items;
+        let quantities;
 
-        if (localStorage.getItem("items") === null)
+        if (localStorage.getItem("items") === null || localStorage.getItem("quantities") === null)
         {
             items = [];
+            quantities = [];
         }
         else
         {
             items = JSON.parse(localStorage.getItem("items"));
+            quantities = JSON.parse(localStorage.getItem("quantities"));
         }
 
         for (let i = 0; i < items.length; i++)
         {
+            var quantityRemove = quantities[i];
+
+            console.log(quantityRemove);
             if (items[i] == itemRemove)
             {
                 localStorage.removeItem('items', 'itemRemove');
+                localStorage.removeItem('quantities', 'quantityRemove')
             }
         }
     }
