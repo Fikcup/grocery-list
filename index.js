@@ -120,7 +120,6 @@ function deleteItem(event)
     removeLocalItems();
 }
 
-// NOT FUNCTIONAL
 function crossOffItem(event)
 {
     const crossOff = event.target;
