@@ -1,6 +1,7 @@
 // Next steps
 
 /*
+    * Fix all issues with localStorage
     * Have the quantity value change in localStorage on click
 */
 
