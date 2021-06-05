@@ -95,7 +95,6 @@ function deleteItem(event)
     }
 
     // Delete targeted item from local storage
-    // NOT FUNCTIONAL
     function removeLocalItems(liItem)
     {
         let items;
