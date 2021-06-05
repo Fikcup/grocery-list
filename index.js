@@ -49,6 +49,7 @@ function addItem(event)
     // Quantity display
     const quantityDisplay = document.createElement("p");
     quantityDisplay.innerHTML = quantity;
+    quantityDisplay.value = quantity;
     quantityDisplay.classList.add("quantity");
     itemDiv.appendChild(quantityDisplay);
 
@@ -151,8 +152,12 @@ function quantityUp(event)
     // Increase quantity of targeted element
     if (quantityIncrease.classList[0] === "quantity-increase-btn")
     {
-        const quantityElement = quantityIncrease.previousSibling.innerHTML;
-        console.log(quantityElement);
+        const quantityElement = document.querySelector('.quantity');
+        const quantityElementValue = quantityElement.value;
+        var quantityChange = parseInt(quantityElementValue);
+        quantityChange++;
+        quantityElement.innerText = quantityChange;
+        console.log(quantityChange);
     }
 }
 
@@ -164,8 +169,12 @@ function quantityDown(event)
     // Decrease quantity of targeted element
     if (quantityDecrease.classList[0] === "quantity-decrease-btn")
     {
-        const quantityElement = document.querySelector(".quantity");
-        quantityElement.quantity--;
+        const quantityElement = document.querySelector('.quantity');
+        const quantityElementValue = quantityElement.value;
+        var quantityChange = parseInt(quantityElementValue);
+        quantityChange--;
+        quantityElement.innerText = quantityChange;
+        console.log(quantityChange);
     }
 }
 
@@ -257,6 +266,7 @@ function onLoad()
         // Quantity display
         const quantityDisplay = document.createElement("p");
         quantityDisplay.innerText = quantities;
+        quantityDisplay.value = quantities;
         quantityDisplay.classList.add("quantity");
         itemDiv.appendChild(quantityDisplay);
 
