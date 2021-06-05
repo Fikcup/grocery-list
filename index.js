@@ -5,7 +5,6 @@
     * Have the quantity value change in localStorage on click
 */
 
-var quantity;
 const itemInput = document.querySelector(".item-input");
 const addButton = document.querySelector(".add-btn");
 const list = document.querySelector(".list");
@@ -44,30 +43,26 @@ function addItem(event)
     deleteBtn.classList.add("delete-btn");
     itemDiv.appendChild(deleteBtn);
 
-    // Set Default Quantity to One
-    quantity = 1;
-
-    // Quantity display
-    const quantityDisplay = document.createElement("p");
-    quantityDisplay.innerHTML = quantity;
-    quantityDisplay.value = quantity;
-    quantityDisplay.classList.add("quantity");
-    itemDiv.appendChild(quantityDisplay);
-
     // Add quantity to local storage
     saveQuantityLocally(quantity);
-
-    // Quantity up button
-    const quantityIncreaseBtn = document.createElement("button");
-    quantityIncreaseBtn.innerHTML = "<i class='fas fa-caret-square-up'></i>";
-    quantityIncreaseBtn.classList.add("quantity-increase-btn");
-    itemDiv.appendChild(quantityIncreaseBtn);
 
     // Quantity down button
     const quantityDecreaseBtn = document.createElement("button");
     quantityDecreaseBtn.innerHTML = "<i class='fas fa-caret-square-down'></i>";
     quantityDecreaseBtn.classList.add("quantity-decrease-btn");
     itemDiv.appendChild(quantityDecreaseBtn); 
+
+    // Quantity input field
+    const quantityInput = document.createElement("input");
+    quantityInput.type = "text";
+    quantityInput.classList.add('quantity');
+    quantityInput.value = "1";
+
+    // Quantity up button
+    const quantityIncreaseBtn = document.createElement("button");
+    quantityIncreaseBtn.innerHTML = "<i class='fas fa-caret-square-up'></i>";
+    quantityIncreaseBtn.classList.add("quantity-increase-btn");
+    itemDiv.appendChild(quantityIncreaseBtn);
 
     // Append to UL
     list.appendChild(itemDiv);
@@ -262,24 +257,23 @@ function onLoad()
         deleteBtn.classList.add("delete-btn");
         itemDiv.appendChild(deleteBtn);
 
-        // Quantity display
-        const quantityDisplay = document.createElement("p");
-        quantityDisplay.innerText = quantities;
-        quantityDisplay.value = quantities;
-        quantityDisplay.classList.add("quantity");
-        itemDiv.appendChild(quantityDisplay);
+        // Quantity down button
+        const quantityDecreaseBtn = document.createElement("button");
+        quantityDecreaseBtn.innerHTML = "<i class='fas fa-caret-square-down'></i>";
+        quantityDecreaseBtn.classList.add("quantity-decrease-btn");
+        itemDiv.appendChild(quantityDecreaseBtn); 
+
+        // Quantity input field
+        const quantityInput = document.createElement("input");
+        quantityInput.type = "text";
+        quantityInput.classList.add('quantity');
+        quantityInput.value = "1";
 
         // Quantity up button
         const quantityIncreaseBtn = document.createElement("button");
         quantityIncreaseBtn.innerHTML = "<i class='fas fa-caret-square-up'></i>";
         quantityIncreaseBtn.classList.add("quantity-increase-btn");
         itemDiv.appendChild(quantityIncreaseBtn);
-
-        // Quantity down button
-        const quantityDecreaseBtn = document.createElement("button");
-        quantityDecreaseBtn.innerHTML = "<i class='fas fa-caret-square-down'></i>";
-        quantityDecreaseBtn.classList.add("quantity-decrease-btn");
-        itemDiv.appendChild(quantityDecreaseBtn); 
 
         // Append to UL
         list.appendChild(itemDiv);
