@@ -150,11 +150,14 @@ function crossOffItem(event)
 
 function quantityUp()
 {
+    // Grabs value quantity of the item and adds one
     var quantity = document.querySelector(".quantity").value;
     quantity++;
 
+    // Changes value visually
     document.querySelector(".quantity").value = quantity;
 
+    // Prevents quantity from going below zero
     if (quantity > 1)
     {
         document.querySelector(".quantity-decrease-btn").removeAttribute("disabled");
@@ -164,11 +167,14 @@ function quantityUp()
 
 function quantityDown()
 {
+    // Grabs value quantity of the item and subtracts one
     var quantity = document.querySelector(".quantity").value;
     quantity--;
 
+    // Changes value visually
     document.querySelector(".quantity").value = quantity;
 
+    // Prevents quantity from going below zero
     if (quantity == 1)
     {
         document.querySelector(".quantity-decrease-btn").setAttribute("disabled", "disabled");
