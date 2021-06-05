@@ -5,7 +5,6 @@
     * Move quantity into addItem to be created with each new item
 */
 
-var quantity = 0;
 const itemInput = document.querySelector(".item-input");
 const addButton = document.querySelector(".add-btn");
 const list = document.querySelector(".list");
@@ -30,7 +29,7 @@ function addItem(event)
     itemDiv.appendChild(newItem);
 
     // Add item to local storage
-    saveLocally(itemInput.value);
+    saveItemLocally(itemInput.value);
 
     // Cross off item
     const crossOffBtn = document.createElement("button");
@@ -44,11 +43,17 @@ function addItem(event)
     deleteBtn.classList.add("delete-btn");
     itemDiv.appendChild(deleteBtn);
 
+    // Set Default Quantity to One
+    var quantity = 1;
+
     // Quantity display
     const quantityDisplay = document.createElement("p");
     quantityDisplay.innerHTML = quantity;
     quantityDisplay.classList.add("quantity");
     itemDiv.appendChild(quantityDisplay);
+
+    // Add quantity to local storage
+    saveQuantityLocally(quantity);
 
     // Quantity up button
     const quantityIncreaseBtn = document.createElement("button");
@@ -163,7 +168,7 @@ function clearAll()
     localStorage.clear();
 }
 
-function saveLocally(item)
+function saveItemLocally(item)
 {
     let items;
 
@@ -182,18 +187,40 @@ function saveLocally(item)
     localStorage.setItem("items", JSON.stringify(items));
 }
 
+function saveQuantityLocally(quantity)
+{
+    let quantities;
+
+    // If there is no local storage, create it. Else, retrieve it.
+    if (localStorage.getItem("quantities") === null)
+    {
+        quantities = [];
+    }
+    else
+    {
+        quantities = JSON.parse(localStorage.getItem("quantities"));
+    }
+
+    // Saving items on a local array to save grocery list on refresh
+    quantities.push(quantity);
+    localStorage.setItem("quantities", JSON.stringify(quantities));
+}
+
 function onLoad()
 {
     let items;
+    let quantities;
 
     // If there is no local storage, create it. Else, retrieve it.
     if (localStorage.getItem("items") === null)
     {
         items = [];
+        quantities = [];
     }
     else
     {
         items = JSON.parse(localStorage.getItem("items"));
+        quantities = JSON.parse(localStorage.getItem("quantities"));
     }
 
     // On refresh or web page load grab items in session storage and display
@@ -222,7 +249,7 @@ function onLoad()
 
         // Quantity display
         const quantityDisplay = document.createElement("p");
-        quantityDisplay.innerHTML = quantity;
+        quantityDisplay.innerText = quantities;
         quantityDisplay.classList.add("quantity");
         itemDiv.appendChild(quantityDisplay);
 
