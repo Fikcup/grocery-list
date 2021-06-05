@@ -87,7 +87,6 @@ function deleteItem(event)
     const item = event.target;
     const itemRemoveQuery = document.querySelector('.li-item');
     const itemRemove = itemRemoveQuery.innerHTML;
-    console.log(itemRemove);
 
     if (item.classList[0] === "delete-btn")
     {
@@ -114,14 +113,8 @@ function deleteItem(event)
         {
             if (items[i] == itemRemove)
             {
-                var itemRemove = items[i];
-                var arr = localStorage.getItem('items');
-                console.log(arr);
-                console.log(itemRemove);
-                arr = arr.removeLocalItems(itemRemove);
-                localStorage = arr;
+                localStorage.removeItem('items', 'itemRemove');
             }
-            console.log(items[i]);
         }
     }
 
