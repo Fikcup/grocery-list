@@ -157,34 +157,11 @@ function crossOffItem(event)
 function quantityUp(event)
 {
     const quantityIncrease = event.target;
-    const itemQuantityQuery = document.querySelector('.li-item');
-    const itemQuantity = itemQuantityQuery.innerHTML;
-    let items = JSON.parse(localStorage.getItem("items"));
-    let quantities = JSON.parse(localStorage.getItem("quantities"));
 
     // Increase quantity of targeted element
     if (quantityIncrease.classList[0] === "quantity-increase-btn")
     {
-        //const quantityElement = document.querySelector('.quantity');
-        //const quantityElementValue = quantityElement.value;
-        //var quantityChange = parseInt(quantityElementValue);
-        //quantityChange++;
-        //quantityElement.innerText = quantityChange;
-        //console.log(quantityChange);
-        quantity++;
-
-       for (let i = 0; i < items.length; i++)
-       {
-           if (items[i] == itemQuantity)
-           {
-               var quantityChange = quantities[i];
-               quantityChange++;
-               var localStorageKey = localStorage.key(i);
-               console.log(localStorageKey);
-               //localStorage.setItem('quantities', 'quantityChange');
-               console.log("Working");
-           }
-       } 
+       // Restart
     }
 }
 
@@ -196,12 +173,7 @@ function quantityDown(event)
     // Decrease quantity of targeted element
     if (quantityDecrease.classList[0] === "quantity-decrease-btn")
     {
-        const quantityElement = document.querySelector('.quantity');
-        const quantityElementValue = quantityElement.value;
-        var quantityChange = parseInt(quantityElementValue);
-        quantityChange--;
-        quantityElement.innerText = quantityChange;
-        console.log(quantityChange);
+        // Restart
     }
 }
 
