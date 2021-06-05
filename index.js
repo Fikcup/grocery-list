@@ -5,6 +5,7 @@
     * Have the quantity value change in localStorage on click
 */
 
+var quantity;
 const itemInput = document.querySelector(".item-input");
 const addButton = document.querySelector(".add-btn");
 const list = document.querySelector(".list");
@@ -44,7 +45,7 @@ function addItem(event)
     itemDiv.appendChild(deleteBtn);
 
     // Set Default Quantity to One
-    var quantity = 1;
+    quantity = 1;
 
     // Quantity display
     const quantityDisplay = document.createElement("p");
@@ -123,8 +124,16 @@ function deleteItem(event)
             console.log(quantityRemove);
             if (items[i] == itemRemove)
             {
-                localStorage.removeItem('items', 'itemRemove');
-                localStorage.removeItem('quantities', 'quantityRemove')
+                items.splice(i, 1);
+                quantities.splice(i, 1);
+                localStorage.setItem('items', 'items');
+                localStorage.setItem('quantities', 'quantities');
+
+                if (items == "")
+                {
+                    localStorage.clear();
+                    console.log("Local storage cleared.");
+                }
             }
         }
     }
@@ -148,16 +157,34 @@ function crossOffItem(event)
 function quantityUp(event)
 {
     const quantityIncrease = event.target;
+    const itemQuantityQuery = document.querySelector('.li-item');
+    const itemQuantity = itemQuantityQuery.innerHTML;
+    let items = JSON.parse(localStorage.getItem("items"));
+    let quantities = JSON.parse(localStorage.getItem("quantities"));
 
     // Increase quantity of targeted element
     if (quantityIncrease.classList[0] === "quantity-increase-btn")
     {
-        const quantityElement = document.querySelector('.quantity');
-        const quantityElementValue = quantityElement.value;
-        var quantityChange = parseInt(quantityElementValue);
-        quantityChange++;
-        quantityElement.innerText = quantityChange;
-        console.log(quantityChange);
+        //const quantityElement = document.querySelector('.quantity');
+        //const quantityElementValue = quantityElement.value;
+        //var quantityChange = parseInt(quantityElementValue);
+        //quantityChange++;
+        //quantityElement.innerText = quantityChange;
+        //console.log(quantityChange);
+        quantity++;
+
+       for (let i = 0; i < items.length; i++)
+       {
+           if (items[i] == itemQuantity)
+           {
+               var quantityChange = quantities[i];
+               quantityChange++;
+               var localStorageKey = localStorage.key(i);
+               console.log(localStorageKey);
+               //localStorage.setItem('quantities', 'quantityChange');
+               console.log("Working");
+           }
+       } 
     }
 }
 
