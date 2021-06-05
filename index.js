@@ -155,6 +155,12 @@ function quantityUp()
     quantity++;
 
     document.querySelector(".quantity").value = quantity;
+
+    if (quantity > 1)
+    {
+        document.querySelector(".quantity-decrease-btn").removeAttribute("disabled");
+        document.querySelector(".quantity-decrease-btn").classList.remove("disabled");
+    }
 }
 
 function quantityDown()
@@ -163,6 +169,11 @@ function quantityDown()
     quantity--;
 
     document.querySelector(".quantity").value = quantity;
+
+    if (quantity == 1)
+    {
+        document.querySelector(".quantity-decrease-btn").setAttribute("disabled", "disabled");
+    }
 }
 
 function clearAll()
