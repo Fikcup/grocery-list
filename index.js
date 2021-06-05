@@ -124,14 +124,12 @@ function deleteItem(event)
 function crossOffItem(event)
 {
     const crossOff = event.target;
-    const targetedElement = crossOff.previousSibling;
-    const itemText = targetedElement.innerHTML;
+    const itemCrossOffQuery = document.querySelector('.li-item');
 
     // Cross off targeted element
     if (crossOff.classList[0] === "complete-btn")
     {
-        console.log(itemText);
-        itemText.strike();
+        itemCrossOffQuery.classList.toggle("cross-off");
     }
 }
 
