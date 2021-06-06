@@ -36,18 +36,21 @@ function addItem(event)
     crossOffBtn.innerHTML = "<i class='fas fa-check-square'></i>";
     crossOffBtn.classList.add("complete-btn");
     itemDiv.appendChild(crossOffBtn);
+    crossOffBtn.addEventListener("click", crossOffItem);
 
     // Delete button
     const deleteBtn = document.createElement("button");
     deleteBtn.innerHTML = "<i class='fas fa-trash-alt'></i>";
     deleteBtn.classList.add("delete-btn");
     itemDiv.appendChild(deleteBtn);
+    deleteBtn.addEventListener("click", deleteItem);
 
     // Quantity down button
     const quantityDecreaseBtn = document.createElement("button");
     quantityDecreaseBtn.innerHTML = "<i class='fas fa-caret-square-down'></i>";
     quantityDecreaseBtn.classList.add("quantity-decrease-btn");
     itemDiv.appendChild(quantityDecreaseBtn); 
+    quantityDecreaseBtn.addEventListener("click", quantityDown); 
 
     // Quantity input field
     const quantityInput = document.createElement("input");
@@ -61,6 +64,7 @@ function addItem(event)
     quantityIncreaseBtn.innerHTML = "<i class='fas fa-caret-square-up'></i>";
     quantityIncreaseBtn.classList.add("quantity-increase-btn");
     itemDiv.appendChild(quantityIncreaseBtn);
+    quantityIncreaseBtn.addEventListener("click", quantityUp);
 
     // Add quantity to local storage
     saveQuantityLocally(quantityInput.value);
@@ -70,29 +74,20 @@ function addItem(event)
 
     // Clear input field
     itemInput.value = "";
-
-    // Query Selector for created buttons
-    const quantityUpButton = document.querySelector(".quantity-increase-btn");
-    const quantityDownButton = document.querySelector(".quantity-decrease-btn");
-    const deleteButton = document.querySelector(".delete-btn");
-    const crossOffButton = document.querySelector(".complete-btn");
-
-    // Event listeners for new buttons
-    deleteButton.addEventListener("click", deleteItem);
-    crossOffButton.addEventListener("click", crossOffItem);
-    quantityUpButton.addEventListener("click", quantityUp);
-    quantityDownButton.addEventListener("click", quantityDown); 
 }
 
 function deleteItem(event)
 {
-    const item = event.target;
+    const icon = event.target;
+
+    // Selects item and saves its innerHTML
     const itemRemoveQuery = document.querySelector('.li-item');
     const itemRemove = itemRemoveQuery.innerHTML;
 
-    if (item.classList[0] === "delete-btn")
+    // Calls the entire created li item and removes it and its buttons
+    if (icon.classList[0] === "delete-btn")
     {
-        const liItem = item.parentElement; 
+        const liItem = icon.parentElement; 
         liItem.remove();
     }
 
@@ -257,18 +252,21 @@ function onLoad()
         crossOffBtn.innerHTML = "<i class='fas fa-check-square'></i>";
         crossOffBtn.classList.add("complete-btn");
         itemDiv.appendChild(crossOffBtn);
+        crossOffBtn.addEventListener("click", crossOffItem);
 
         // Delete button
         const deleteBtn = document.createElement("button");
         deleteBtn.innerHTML = "<i class='fas fa-trash-alt'></i>";
         deleteBtn.classList.add("delete-btn");
         itemDiv.appendChild(deleteBtn);
+        deleteBtn.addEventListener("click", deleteItem);
 
         // Quantity down button
         const quantityDecreaseBtn = document.createElement("button");
         quantityDecreaseBtn.innerHTML = "<i class='fas fa-caret-square-down'></i>";
         quantityDecreaseBtn.classList.add("quantity-decrease-btn");
         itemDiv.appendChild(quantityDecreaseBtn); 
+        quantityDecreaseBtn.addEventListener("click", quantityDown); 
 
         // Quantity input field
         const quantityInput = document.createElement("input");
@@ -282,20 +280,9 @@ function onLoad()
         quantityIncreaseBtn.innerHTML = "<i class='fas fa-caret-square-up'></i>";
         quantityIncreaseBtn.classList.add("quantity-increase-btn");
         itemDiv.appendChild(quantityIncreaseBtn);
+        quantityIncreaseBtn.addEventListener("click", quantityUp);
 
         // Append to UL
         list.appendChild(itemDiv);
-
-         // Query Selector for created buttons
-        const quantityUpButton = document.querySelector(".quantity-increase-btn");
-        const quantityDownButton = document.querySelector(".quantity-decrease-btn");
-        const deleteButton = document.querySelector(".delete-btn");
-        const crossOffButton = document.querySelector(".complete-btn");
-
-        // Event listeners for new buttons
-        deleteButton.addEventListener("click", deleteItem);
-        crossOffButton.addEventListener("click", crossOffItem);
-        quantityUpButton.addEventListener("click", quantityUp);
-        quantityDownButton.addEventListener("click", quantityDown); 
     });
 }
