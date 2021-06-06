@@ -76,20 +76,15 @@ function addItem(event)
     itemInput.value = "";
 }
 
-function deleteItem(event)
+function deleteItem()
 {
-    const icon = event.target;
+    // Defines the whole data structure and removes it
+    const parent = this.parentElement;
+    parent.remove();
 
     // Selects item and saves its innerHTML
-    const itemRemoveQuery = document.querySelector('.li-item');
+    const itemRemoveQuery = parent.querySelector('li');
     const itemRemove = itemRemoveQuery.innerHTML;
-
-    // Calls the entire created li item and removes it and its buttons
-    if (icon.classList[0] === "delete-btn")
-    {
-        const liItem = icon.parentElement; 
-        liItem.remove();
-    }
 
     // Delete targeted item from local storage
     function removeLocalItems()
