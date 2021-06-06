@@ -165,17 +165,20 @@ function quantityUp()
 
 function quantityDown()
 {
-    // Grabs value quantity of the item and subtracts one
-    var quantity = document.querySelector(".quantity").value;
+    // Grabs value quantity of the item and adds one
+    const quantityInput = this.previousElementSibling;
+    let quantity = quantityInput.value;
     quantity--;
 
     // Changes value visually
-    document.querySelector(".quantity").value = quantity;
+    quantityInput.value = quantity;
 
     // Prevents quantity from going below zero
     if (quantity == 1)
     {
-        document.querySelector(".quantity-decrease-btn").setAttribute("disabled", "disabled");
+        document
+            .querySelector(".quantity-decrease-btn")
+            .setAttribute("disabled", "disabled");
     }
 }
 
