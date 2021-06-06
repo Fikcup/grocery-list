@@ -11,25 +11,24 @@ const list = document.querySelector(".list");
 const clearButton = document.querySelector(".clear");
 
 document.addEventListener('DOMContentLoaded', onLoad);
-addButton.addEventListener("click", addItem);
+addButton.addEventListener("click", addNewItem);
 clearButton.addEventListener("click", clearAll);
 
-function addItem(event)
+function addNewItem() 
 {
-    // Prevent form from submitting without a value
-    event.preventDefault();
+    addItem(itemInput.value, 1, true);
+}
 
+function addItem(title, quantity, saveLocally)
+{
     const itemDiv = document.createElement("div");
     itemDiv.classList.add("item");
 
     // Create new LI
     const newItem = document.createElement("li");
-    newItem.innerText = itemInput.value;
+    newItem.innerText = title;
     newItem.classList.add("li-item");
     itemDiv.appendChild(newItem);
-
-    // Add item to local storage
-    saveItemLocally(itemInput.value);
 
     // Cross off item
     const crossOffBtn = document.createElement("button");
@@ -56,7 +55,7 @@ function addItem(event)
     const quantityInput = document.createElement("input");
     quantityInput.type = "text";
     quantityInput.classList.add('quantity');
-    quantityInput.value = "1";
+    quantityInput.value = quantity;
     itemDiv.appendChild(quantityInput);
 
     // Quantity up button
@@ -66,8 +65,14 @@ function addItem(event)
     itemDiv.appendChild(quantityIncreaseBtn);
     quantityIncreaseBtn.addEventListener("click", quantityUp);
 
-    // Add quantity to local storage
-    saveQuantityLocally(quantityInput.value);
+    if (saveLocally)
+    {
+        // Add item to local storage
+        saveItemLocally(itemInput.value);
+
+        // Add quantity to local storage
+        saveQuantityLocally(quantityInput.value);
+    }
 
     // Append to UL
     list.appendChild(itemDiv);
@@ -139,17 +144,22 @@ function crossOffItem(event)
 function quantityUp()
 {
     // Grabs value quantity of the item and adds one
-    var quantity = document.querySelector(".quantity").value;
+    const quantityInput = this.previousElementSibling;
+    let quantity = quantityInput.value;
     quantity++;
 
     // Changes value visually
-    document.querySelector(".quantity").value = quantity;
+    quantityInput.value = quantity;
 
     // Prevents quantity from going below zero
-    if (quantity > 1)
+    if (quantity > 1) 
     {
-        document.querySelector(".quantity-decrease-btn").removeAttribute("disabled");
-        document.querySelector(".quantity-decrease-btn").classList.remove("disabled");
+        document
+            .querySelector(".quantity-decrease-btn")
+            .removeAttribute("disabled");
+        document
+            .querySelector(".quantity-decrease-btn")
+            .classList.remove("disabled");
     }
 }
 
@@ -219,65 +229,21 @@ function onLoad()
     let quantities;
 
     // If there is no local storage, create it. Else, retrieve it.
-    if (localStorage.getItem("items") === null)
+    if (localStorage.getItem("items") === null) 
     {
         items = [];
         quantities = [];
-    }
-    else
+    } 
+    else 
     {
         items = JSON.parse(localStorage.getItem("items"));
         quantities = JSON.parse(localStorage.getItem("quantities"));
     }
 
-    // On refresh or web page load grab items in session storage and display
-    items.forEach(function(items)
+    for (let i = 0; i < items.length; i++) 
     {
-        const itemDiv = document.createElement("div");
-        itemDiv.classList.add("item");
-
-        // Create new LI
-        const newItem = document.createElement("li");
-        newItem.innerText = items;
-        newItem.classList.add("li-item");
-        itemDiv.appendChild(newItem);
-
-        // Cross off item
-        const crossOffBtn = document.createElement("button");
-        crossOffBtn.innerHTML = "<i class='fas fa-check-square'></i>";
-        crossOffBtn.classList.add("complete-btn");
-        itemDiv.appendChild(crossOffBtn);
-        crossOffBtn.addEventListener("click", crossOffItem);
-
-        // Delete button
-        const deleteBtn = document.createElement("button");
-        deleteBtn.innerHTML = "<i class='fas fa-trash-alt'></i>";
-        deleteBtn.classList.add("delete-btn");
-        itemDiv.appendChild(deleteBtn);
-        deleteBtn.addEventListener("click", deleteItem);
-
-        // Quantity down button
-        const quantityDecreaseBtn = document.createElement("button");
-        quantityDecreaseBtn.innerHTML = "<i class='fas fa-caret-square-down'></i>";
-        quantityDecreaseBtn.classList.add("quantity-decrease-btn");
-        itemDiv.appendChild(quantityDecreaseBtn); 
-        quantityDecreaseBtn.addEventListener("click", quantityDown); 
-
-        // Quantity input field
-        const quantityInput = document.createElement("input");
-        quantityInput.type = "text";
-        quantityInput.classList.add('quantity');
-        quantityInput.value = quantities;
-        itemDiv.appendChild(quantityInput);
-
-        // Quantity up button
-        const quantityIncreaseBtn = document.createElement("button");
-        quantityIncreaseBtn.innerHTML = "<i class='fas fa-caret-square-up'></i>";
-        quantityIncreaseBtn.classList.add("quantity-increase-btn");
-        itemDiv.appendChild(quantityIncreaseBtn);
-        quantityIncreaseBtn.addEventListener("click", quantityUp);
-
-        // Append to UL
-        list.appendChild(itemDiv);
-    });
+        const item = items[i];
+        const quantity = quantities[i];
+        addItem(item, quantity, false);
+    }
 }
