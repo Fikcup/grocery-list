@@ -114,10 +114,7 @@ function deleteItem(event)
         }
 
         for (let i = 0; i < items.length; i++)
-        {
-            var quantityRemove = quantities[i];
-
-            console.log(quantityRemove);
+        {           
             if (items[i] == itemRemove)
             {
                 items.splice(i, 1);
