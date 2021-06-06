@@ -20,6 +20,12 @@ function addNewItem()
 
 function addItem(title, quantity, saveLocally)
 {
+    /**
+        * @param {string} title The name of the new item
+        * @param {number} quantity The quantity of the item
+        * @param {boolean} saveLocally Saves the item in localStorage if true
+    */
+   
     const itemDiv = document.createElement("div");
     itemDiv.classList.add("item");
 
@@ -189,7 +195,8 @@ function quantityDown()
 
 function updateLocalQuantity()
 {
-    //
+    // Pull quantities data from local storage and hold data in an array
+    let quantities = JSON.parse(localStorage.getItem("quantities"));
 }
 
 function clearAll()
