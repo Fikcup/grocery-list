@@ -1,7 +1,6 @@
 // Next steps
 
 /*
-    * Fix all issues with localStorage
     * Have the quantity value change in localStorage on click
 */
 
@@ -161,6 +160,9 @@ function quantityUp()
             .querySelector(".quantity-decrease-btn")
             .classList.remove("disabled");
     }
+
+    // Updating quantity in localStorage
+    updateLocalQuantity();
 }
 
 function quantityDown()
@@ -180,6 +182,14 @@ function quantityDown()
             .querySelector(".quantity-decrease-btn")
             .setAttribute("disabled", "disabled");
     }
+
+    // Updating quantity in localStorage
+    updateLocalQuantity();
+}
+
+function updateLocalQuantity()
+{
+    //
 }
 
 function clearAll()
