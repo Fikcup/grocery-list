@@ -122,8 +122,8 @@ function deleteItem(event)
             {
                 items.splice(i, 1);
                 quantities.splice(i, 1);
-                localStorage.setItem('items', 'items');
-                localStorage.setItem('quantities', 'quantities');
+                localStorage.setItem('items', items);
+                localStorage.setItem('quantities', quantities);
 
                 if (items == "")
                 {
