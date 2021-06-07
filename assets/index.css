@@ -1,3 +1,89 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    background: linear-gradient(270deg, #D680FF, #EFCCFF);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header
+{
+    font-size: 1.5rem;
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+.list
+{
+    font-size: 2rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.li-item
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+form input,
+form button
+{
+    padding: 0.5rem;
+    font-size: 2rem;
+    border: none;
+    background: white;
+}
+
+#listDiv input,
+#listDiv button
+{
+    padding: 0.5rem;
+    font-size: 2rem;
+    border: none;
+}
+
+#listDiv button:hover,
+form button:hover,
+.clear:hover
+{
+    color: #EFCCFF;
+    background: white;
+}
+
+#listDiv input
+{
+    background: white;
+}
+
+#listDiv button,
+form button
+{
+    background: #EFCCFF;
+}
+
+.clear
+{
+    padding: 1rem;
+    font-size: 2rem;
+    border: none;
+    background: #EFCCFF;
+    color: white;
+}
+
 .cross-off
 {
     text-decoration: line-through;
@@ -11,8 +97,6 @@
 
 .quantity-increase-btn
 {
-    width: 45px;
-    height: 45px;
     border: 1px solid #000;
     color: #000;
     border-radius: 0;
@@ -21,8 +105,6 @@
 
 .quantity-decrease-btn
 {
-    width: 45px;
-    height: 45px;
     border: 1px solid #000;
     color: #000;
     border-radius: 0;
