@@ -1,23 +1,57 @@
-# Grocery List
-<p>Grocery List developed using HTML, CSS, and JavaScript. The overall goal of the project is to work with creating elements and appending elements to each other.</p>
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <h3 align="center">Grocery List</h3>
 
-## Goals
+  <p align="center">
+    Grocery List developed using HTML, CSS, and JavaScript. The overall goal of the project is to work with creating elements and appending elements to each other.
+    <br />
+  </p>
+</p>
 
-### Basic
-<ul>
-    <li>Display a list of grocery items</li>
-    <li>Able to add and remove items</li>
-    <li>Add quantity</li>
-</ul>
 
-### Moderate
-<ul>
-    <li>Remove item displayed opon hovering</li>
-    <li>Clear entire list</li>
-    <li>Cross off list button</li>
-</ul>
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-### Advanced
-<ul>
-    <li>Create a local storage/session storage of the list</li>
-</ul>
+[Grocery List](https://media.discordapp.net/attachments/810364865419673631/851521125153243237/unknown.png?width=960&height=520)
+
+
+### Built With
+
+* [JavaScript](https://www.javascript.com/)
+* [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/github_username/repo_name.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+
+<!-- CONTACT -->
+## Contact
+
+Rhys Wright - [@fikrysoft](https://twitter.com/fikrysoft) - rhys.n.wright@gmail.com
+
+Project Link: [Grocery List](https://fikcup.github.io/grocery-list/)
