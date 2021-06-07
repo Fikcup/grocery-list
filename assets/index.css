@@ -113,6 +113,7 @@ form button
     color: #000;
     border-radius: 0;
     background: #fff;
+    display: block;
 }
 
 .quantity input
@@ -125,4 +126,5 @@ form button
     font-size: 20px;
     color: #000;
     font-weight: 300;
+    display: flex;
 }
