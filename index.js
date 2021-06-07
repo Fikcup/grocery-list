@@ -193,10 +193,28 @@ function quantityDown()
     updateLocalQuantity();
 }
 
-function updateLocalQuantity()
+function updateLocalQuantity(quantity)
 {
+    const parent = this.parentElement;
+    console.log(parent);
+
+    // Selects item and saves its innerHTML
+    const itemQuantityQuery = parent.querySelector('li');
+    const itemQuantity = itemQuantityQuery.innerHTML;
+
     // Pull quantities data from local storage and hold data in an array
     let quantities = JSON.parse(localStorage.getItem("quantities"));
+
+    // Iterates through items array
+    for (let i = 0; i < items.length; i++)
+    {
+        // If the item name is equal to the index, take that index of quantity and update it
+        if (items[i] == itemQuantity)
+        {
+            quantities[i] = quantity;
+            localStorage.setItem('quantities', JSON.stringify(quantities));
+        }
+    }
 }
 
 function clearAll()
