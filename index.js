@@ -179,7 +179,7 @@ function quantityUp()
 function quantityDown()
 {
     // Grabs value quantity of the item and adds one
-    const quantityInput = this.previousElementSibling;
+    const quantityInput = this.nextElementSibling;
     let quantity = quantityInput.value;
     quantity--;
 
