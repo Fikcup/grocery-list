@@ -128,16 +128,14 @@ function deleteItem()
     removeLocalItems();
 }
 
-function crossOffItem(event)
+function crossOffItem()
 {
-    const crossOff = event.target;
-    const itemCrossOffQuery = document.querySelector('.li-item');
+    // Calls parent and targets item
+    const parent = this.parentElement;
+    const itemCrossOffQuery = parent.querySelector('.li-item');
 
     // Cross off targeted element
-    if (crossOff.classList[0] === "complete-btn")
-    {
-        itemCrossOffQuery.classList.toggle("cross-off");
-    }
+    itemCrossOffQuery.classList.toggle("cross-off");
 }
 
 function quantityUp()
