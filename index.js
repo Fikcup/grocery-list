@@ -1,9 +1,3 @@
-// Next steps
-
-/*
-    * Have the quantity value change in localStorage on click
-*/
-
 const itemInput = document.querySelector(".item-input");
 const addButton = document.querySelector(".add-btn");
 const list = document.querySelector(".list");
