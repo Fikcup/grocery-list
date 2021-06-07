@@ -167,8 +167,13 @@ function quantityUp()
             .classList.remove("disabled");
     }
 
+    // Calling the relevant item
+    const parent = this.parentElement;
+    const itemQuery = parent.querySelector('li');
+    const item = itemQuery.innerHTML;
+
     // Updating quantity in localStorage
-    updateLocalQuantity();
+    updateLocalQuantity(item, quantity);
 }
 
 function quantityDown()
@@ -189,27 +194,26 @@ function quantityDown()
             .setAttribute("disabled", "disabled");
     }
 
+    // Calling the relevant item
+    const parent = this.parentElement;
+    const itemQuery = parent.querySelector('li');
+    const item = itemQuery.innerHTML;
+
     // Updating quantity in localStorage
-    updateLocalQuantity();
+    updateLocalQuantity(item, quantity);
 }
 
-function updateLocalQuantity(quantity)
+function updateLocalQuantity(item, quantity)
 {
-    const parent = this.parentElement;
-    console.log(parent);
-
-    // Selects item and saves its innerHTML
-    const itemQuantityQuery = parent.querySelector('li');
-    const itemQuantity = itemQuantityQuery.innerHTML;
-
-    // Pull quantities data from local storage and hold data in an array
+    // Pull quantities and items data from local storage and hold data in an array
     let quantities = JSON.parse(localStorage.getItem("quantities"));
+    let items = JSON.parse(localStorage.getItem("items"));
 
     // Iterates through items array
     for (let i = 0; i < items.length; i++)
     {
         // If the item name is equal to the index, take that index of quantity and update it
-        if (items[i] == itemQuantity)
+        if (items[i] == item)
         {
             quantities[i] = quantity;
             localStorage.setItem('quantities', JSON.stringify(quantities));
