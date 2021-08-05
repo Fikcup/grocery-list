@@ -13,7 +13,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[Grocery List](https://media.discordapp.net/attachments/810364865419673631/851521125153243237/unknown.png?width=960&height=520)
+![Grocery List Screenshot](https://media.discordapp.net/attachments/810364865419673631/851521125153243237/unknown.png?width=960&height=520)
+[Grocery List Page](https://fikcup.github.io/grocery-list/)
 
 
 ### Built With
