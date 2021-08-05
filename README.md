@@ -14,7 +14,7 @@
 ## About The Project
 
 ![Grocery List Screenshot](https://media.discordapp.net/attachments/810364865419673631/851521125153243237/unknown.png?width=960&height=520)
-[Grocery List Page](https://fikcup.github.io/grocery-list/)
+Project Link: [Grocery List](https://fikcup.github.io/grocery-list/)
 
 
 ### Built With
@@ -30,29 +30,16 @@
 
 To get a local copy up and running follow these simple steps.
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/Fikcup/grocery-list.git
    ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
+2. Run the HTML file
 
 
 <!-- CONTACT -->
 ## Contact
 
 Rhys Wright - [@fikrysoft](https://twitter.com/fikrysoft) - rhys.n.wright@gmail.com
-
-Project Link: [Grocery List](https://fikcup.github.io/grocery-list/)
