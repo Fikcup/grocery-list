@@ -1,13 +1,12 @@
-*
-{
+/* Universal Selectors */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Shadows Into Light', cursive;
 }
 
-body
-{
+body {
     background: linear-gradient(270deg, #D680FF, #EFCCFF);
     color: white;
     min-height: 100vh;
@@ -17,33 +16,31 @@ body
     align-items: center;
 }
 
-header
-{
+/* Page Title Selectors */
+header {
     font-size: 1.5rem;
     padding-bottom: 10px;
 }
 
-ul
-{
+/* List Selectors */
+ul {
     list-style-type: none;
 }
 
-.list
-{
+.list {
     font-size: 2rem;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.li-item
-{
+.li-item {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
+/* Button Selectors */
 form input,
-form button
-{
+form button {
     padding: 0.5rem;
     font-size: 2rem;
     border: none;
@@ -51,8 +48,7 @@ form button
 }
 
 #listDiv input,
-#listDiv button
-{
+#listDiv button {
     padding: 0.5rem;
     font-size: 2rem;
     border: none;
@@ -60,25 +56,21 @@ form button
 
 #listDiv button:hover,
 form button:hover,
-.clear:hover
-{
+.clear:hover {
     color: #EFCCFF;
     background: white;
 }
 
-#listDiv input
-{
+#listDiv input {
     background: white;
 }
 
 #listDiv button,
-form button
-{
+form button {
     background: #EFCCFF;
 }
 
-.clear
-{
+.clear {
     padding: 1rem;
     font-size: 2rem;
     border: none;
@@ -86,29 +78,26 @@ form button
     color: white;
 }
 
-.cross-off
-{
+.cross-off {
     text-decoration: line-through;
     text-decoration-thickness: 5px;
     text-decoration-color: #000;
 }
 
-.quantity
-{
+/* Quanity Selectors */
+.quantity {
     display: flex;
     justify-content: center;
 }
 
-.quantity-increase-btn
-{
+.quantity-increase-btn {
     border: 1px solid #000;
     color: #000;
     border-radius: 0;
     background: #fff;
 }
 
-.quantity-decrease-btn
-{
+.quantity-decrease-btn {
     border: 1px solid #000;
     color: #000;
     border-radius: 0;
@@ -116,8 +105,7 @@ form button
     display: block;
 }
 
-.quantity input
-{
+.quantity input {
     border: none;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
