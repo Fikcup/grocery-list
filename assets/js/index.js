@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', onLoad);
 addButton.addEventListener("click", addNewItem);
 clearButton.addEventListener("click", clearAll);
 
-function addNewItem() {
+const addNewItem = () => {
     addItem(itemInput.value, 1, true);
 }
 
-function addItem(title, quantity, saveLocally) {
+const addItem = (title, quantity, saveLocally) => {
     /** 
         * @param {string} title The name of the new item
         * @param {number} quantity The quantity of the item
@@ -77,7 +77,7 @@ function addItem(title, quantity, saveLocally) {
     itemInput.value = "";
 }
 
-function deleteItem() {
+const deleteItem = () => {
     // Defines the whole data structure and removes it
     const parent = this.parentElement;
     parent.remove();
@@ -87,7 +87,7 @@ function deleteItem() {
     const itemRemove = itemRemoveQuery.innerHTML;
 
     // Delete targeted item from local storage
-    function removeLocalItems() {
+    const removeLocalItems = () => {
         let items;
         let quantities;
 
@@ -117,7 +117,7 @@ function deleteItem() {
     removeLocalItems();
 }
 
-function crossOffItem() {
+const crossOffItem = () => {
     // Calls parent and targets item
     const parent = this.parentElement;
     const itemCrossOffQuery = parent.querySelector('.li-item');
@@ -126,7 +126,7 @@ function crossOffItem() {
     itemCrossOffQuery.classList.toggle("cross-off");
 }
 
-function quantityUp() {
+const quantityUp = () => {
     // Grabs value quantity of the item and adds one
     const quantityInput = this.previousElementSibling;
     let quantity = quantityInput.value;
@@ -154,7 +154,7 @@ function quantityUp() {
     updateLocalQuantity(item, quantity);
 }
 
-function quantityDown() {
+const quantityDown = () => {
     // Grabs value quantity of the item and adds one
     const quantityInput = this.nextElementSibling;
     let quantity = quantityInput.value;
@@ -179,7 +179,7 @@ function quantityDown() {
     updateLocalQuantity(item, quantity);
 }
 
-function updateLocalQuantity(item, quantity) {
+const updateLocalQuantity = (item, quantity) => {
     /** 
         * @param {string} item The name of the item
         * @param {number} quantity The quantity of the item
@@ -199,12 +199,12 @@ function updateLocalQuantity(item, quantity) {
     }
 }
 
-function clearAll() {
+const clearAll = () => {
     document.getElementById("listDiv").innerHTML = "";
     localStorage.clear();
 }
 
-function saveItemLocally(item) {
+const saveItemLocally = (item) => {
     let items;
 
     // If there is no local storage, create it. Else, retrieve it.
@@ -219,7 +219,7 @@ function saveItemLocally(item) {
     localStorage.setItem("items", JSON.stringify(items));
 }
 
-function saveQuantityLocally(quantity) {
+const saveQuantityLocally = (quantity) => {
     let quantities;
 
     // If there is no local storage, create it. Else, retrieve it.
@@ -234,7 +234,7 @@ function saveQuantityLocally(quantity) {
     localStorage.setItem("quantities", JSON.stringify(quantities));
 }
 
-function onLoad() {
+const onLoad = () => {
     let items;
     let quantities;
 
