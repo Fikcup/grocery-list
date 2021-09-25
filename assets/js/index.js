@@ -7,13 +7,11 @@ document.addEventListener('DOMContentLoaded', onLoad);
 addButton.addEventListener("click", addNewItem);
 clearButton.addEventListener("click", clearAll);
 
-function addNewItem() 
-{
+function addNewItem() {
     addItem(itemInput.value, 1, true);
 }
 
-function addItem(title, quantity, saveLocally)
-{
+function addItem(title, quantity, saveLocally) {
     /** 
         * @param {string} title The name of the new item
         * @param {number} quantity The quantity of the item
@@ -64,8 +62,7 @@ function addItem(title, quantity, saveLocally)
     itemDiv.appendChild(quantityIncreaseBtn);
     quantityIncreaseBtn.addEventListener("click", quantityUp);
 
-    if (saveLocally)
-    {
+    if (saveLocally) {
         // Add item to local storage
         saveItemLocally(itemInput.value);
 
@@ -80,8 +77,7 @@ function addItem(title, quantity, saveLocally)
     itemInput.value = "";
 }
 
-function deleteItem()
-{
+function deleteItem() {
     // Defines the whole data structure and removes it
     const parent = this.parentElement;
     parent.remove();
@@ -91,33 +87,26 @@ function deleteItem()
     const itemRemove = itemRemoveQuery.innerHTML;
 
     // Delete targeted item from local storage
-    function removeLocalItems()
-    {
+    function removeLocalItems() {
         let items;
         let quantities;
 
-        if (localStorage.getItem("items") === null || localStorage.getItem("quantities") === null)
-        {
+        if (localStorage.getItem("items") === null || localStorage.getItem("quantities") === null) {
             items = [];
             quantities = [];
-        }
-        else
-        {
+        } else {
             items = JSON.parse(localStorage.getItem("items"));
             quantities = JSON.parse(localStorage.getItem("quantities"));
         }
 
-        for (let i = 0; i < items.length; i++)
-        {           
-            if (items[i] == itemRemove)
-            {
+        for (let i = 0; i < items.length; i++) {           
+            if (items[i] == itemRemove) {
                 items.splice(i, 1);
                 quantities.splice(i, 1);
                 localStorage.setItem('items', JSON.stringify(items));
                 localStorage.setItem('quantities', JSON.stringify(quantities));
 
-                if (items == "")
-                {
+                if (items == "") {
                     localStorage.clear();
                     console.log("Local storage cleared.");
                 }
@@ -128,8 +117,7 @@ function deleteItem()
     removeLocalItems();
 }
 
-function crossOffItem()
-{
+function crossOffItem() {
     // Calls parent and targets item
     const parent = this.parentElement;
     const itemCrossOffQuery = parent.querySelector('.li-item');
@@ -138,8 +126,7 @@ function crossOffItem()
     itemCrossOffQuery.classList.toggle("cross-off");
 }
 
-function quantityUp()
-{
+function quantityUp() {
     // Grabs value quantity of the item and adds one
     const quantityInput = this.previousElementSibling;
     let quantity = quantityInput.value;
@@ -149,8 +136,7 @@ function quantityUp()
     quantityInput.value = quantity;
 
     // Prevents quantity from going below zero
-    if (quantity > 1) 
-    {
+    if (quantity > 1) {
         document
             .querySelector(".quantity-decrease-btn")
             .removeAttribute("disabled");
@@ -168,8 +154,7 @@ function quantityUp()
     updateLocalQuantity(item, quantity);
 }
 
-function quantityDown()
-{
+function quantityDown() {
     // Grabs value quantity of the item and adds one
     const quantityInput = this.nextElementSibling;
     let quantity = quantityInput.value;
@@ -179,8 +164,7 @@ function quantityDown()
     quantityInput.value = quantity;
 
     // Prevents quantity from going below zero
-    if (quantity == 1)
-    {
+    if (quantity == 1) {
         document
             .querySelector(".quantity-decrease-btn")
             .setAttribute("disabled", "disabled");
@@ -195,8 +179,7 @@ function quantityDown()
     updateLocalQuantity(item, quantity);
 }
 
-function updateLocalQuantity(item, quantity)
-{
+function updateLocalQuantity(item, quantity) {
     /** 
         * @param {string} item The name of the item
         * @param {number} quantity The quantity of the item
@@ -207,34 +190,27 @@ function updateLocalQuantity(item, quantity)
     let items = JSON.parse(localStorage.getItem("items"));
 
     // Iterates through items array
-    for (let i = 0; i < items.length; i++)
-    {
+    for (let i = 0; i < items.length; i++) {
         // If the item name is equal to the index, take that index of quantity and update it
-        if (items[i] == item)
-        {
+        if (items[i] == item) {
             quantities[i] = quantity;
             localStorage.setItem('quantities', JSON.stringify(quantities));
         }
     }
 }
 
-function clearAll()
-{
+function clearAll() {
     document.getElementById("listDiv").innerHTML = "";
     localStorage.clear();
 }
 
-function saveItemLocally(item)
-{
+function saveItemLocally(item) {
     let items;
 
     // If there is no local storage, create it. Else, retrieve it.
-    if (localStorage.getItem("items") === null)
-    {
+    if (localStorage.getItem("items") === null) {
         items = [];
-    }
-    else
-    {
+    } else {
         items = JSON.parse(localStorage.getItem("items"));
     }
 
@@ -243,17 +219,13 @@ function saveItemLocally(item)
     localStorage.setItem("items", JSON.stringify(items));
 }
 
-function saveQuantityLocally(quantity)
-{
+function saveQuantityLocally(quantity) {
     let quantities;
 
     // If there is no local storage, create it. Else, retrieve it.
-    if (localStorage.getItem("quantities") === null)
-    {
+    if (localStorage.getItem("quantities") === null) {
         quantities = [];
-    }
-    else
-    {
+    } else {
         quantities = JSON.parse(localStorage.getItem("quantities"));
     }
 
@@ -262,25 +234,20 @@ function saveQuantityLocally(quantity)
     localStorage.setItem("quantities", JSON.stringify(quantities));
 }
 
-function onLoad()
-{
+function onLoad() {
     let items;
     let quantities;
 
     // If there is no local storage, create it. Else, retrieve it.
-    if (localStorage.getItem("items") === null) 
-    {
+    if (localStorage.getItem("items") === null) {
         items = [];
         quantities = [];
-    } 
-    else 
-    {
+    } else {
         items = JSON.parse(localStorage.getItem("items"));
         quantities = JSON.parse(localStorage.getItem("quantities"));
     }
 
-    for (let i = 0; i < items.length; i++) 
-    {
+    for (let i = 0; i < items.length; i++) {
         const item = items[i];
         const quantity = quantities[i];
         addItem(item, quantity, false);
