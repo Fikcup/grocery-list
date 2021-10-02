@@ -90,19 +90,12 @@ form button {
     justify-content: center;
 }
 
-.quantity-increase-btn {
-    border: 1px solid #000;
-    color: #000;
-    border-radius: 0;
-    background: #fff;
-}
-
+.quantity-increase-btn,
 .quantity-decrease-btn {
     border: 1px solid #000;
     color: #000;
     border-radius: 0;
     background: #fff;
-    display: block;
 }
 
 .quantity input {
