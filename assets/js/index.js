@@ -47,7 +47,7 @@ const addItem = (title, quantity, saveLocally) => {
     // Quantity input field
     const quantityInput = document.createElement("input");
     quantityInput.type = "text";
-    quantityInput.classList.add('quantity');
+    quantityInput.classList.add("quantity");
     quantityInput.value = quantity;
     itemDiv.appendChild(quantityInput);
 
@@ -79,7 +79,7 @@ function deleteItem() {
     parent.remove();
 
     // Selects item and saves its innerHTML
-    const itemRemoveQuery = parent.querySelector('li');
+    const itemRemoveQuery = parent.querySelector("li");
     const itemRemove = itemRemoveQuery.innerHTML;
 
     // Delete targeted item from local storage
@@ -99,8 +99,8 @@ function deleteItem() {
             if (items[i] == itemRemove) {
                 items.splice(i, 1);
                 quantities.splice(i, 1);
-                localStorage.setItem('items', JSON.stringify(items));
-                localStorage.setItem('quantities', JSON.stringify(quantities));
+                localStorage.setItem("items", JSON.stringify(items));
+                localStorage.setItem("quantities", JSON.stringify(quantities));
 
                 if (items == "") {
                     localStorage.clear();
@@ -116,7 +116,7 @@ function deleteItem() {
 function crossOffItem() {
     // Calls parent and targets item
     const parent = this.parentElement;
-    const itemCrossOffQuery = parent.querySelector('.li-item');
+    const itemCrossOffQuery = parent.querySelector(".li-item");
 
     // Cross off targeted element
     itemCrossOffQuery.classList.toggle("cross-off");
@@ -143,7 +143,7 @@ function quantityUp() {
 
     // Calling the relevant item
     const parent = this.parentElement;
-    const itemQuery = parent.querySelector('li');
+    const itemQuery = parent.querySelector("li");
     const item = itemQuery.innerHTML;
 
     // Updating quantity in localStorage
@@ -160,7 +160,7 @@ function quantityDown() {
     quantityInput.value = quantity;
 
     // Prevents quantity from going below zero
-    if (quantity == 1) {
+    if (quantity === 1) {
         document
             .querySelector(".quantity-decrease-btn")
             .setAttribute("disabled", "disabled");
@@ -168,7 +168,7 @@ function quantityDown() {
 
     // Calling the relevant item
     const parent = this.parentElement;
-    const itemQuery = parent.querySelector('li');
+    const itemQuery = parent.querySelector("li");
     const item = itemQuery.innerHTML;
 
     // Updating quantity in localStorage
@@ -190,7 +190,7 @@ const updateLocalQuantity = (item, quantity) => {
         // If the item name is equal to the index, take that index of quantity and update it
         if (items[i] == item) {
             quantities[i] = quantity;
-            localStorage.setItem('quantities', JSON.stringify(quantities));
+            localStorage.setItem("quantities", JSON.stringify(quantities));
         }
     }
 }
@@ -250,6 +250,6 @@ const onLoad = () => {
     }
 }
 
-document.addEventListener('DOMContentLoaded', onLoad);
+document.addEventListener("DOMContentLoaded", onLoad);
 addButton.addEventListener("click", addNewItem);
 clearButton.addEventListener("click", clearAll);
