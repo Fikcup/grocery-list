@@ -3,10 +3,6 @@ const addButton = document.querySelector(".add-btn");
 const list = document.querySelector(".list");
 const clearButton = document.querySelector(".clear");
 
-document.addEventListener('DOMContentLoaded', onLoad);
-addButton.addEventListener("click", addNewItem);
-clearButton.addEventListener("click", clearAll);
-
 const addNewItem = () => {
     addItem(itemInput.value, 1, true);
 }
@@ -77,7 +73,7 @@ const addItem = (title, quantity, saveLocally) => {
     itemInput.value = "";
 }
 
-const deleteItem = () => {
+function deleteItem() {
     // Defines the whole data structure and removes it
     const parent = this.parentElement;
     parent.remove();
@@ -117,7 +113,7 @@ const deleteItem = () => {
     removeLocalItems();
 }
 
-const crossOffItem = () => {
+function crossOffItem() {
     // Calls parent and targets item
     const parent = this.parentElement;
     const itemCrossOffQuery = parent.querySelector('.li-item');
@@ -126,7 +122,7 @@ const crossOffItem = () => {
     itemCrossOffQuery.classList.toggle("cross-off");
 }
 
-const quantityUp = () => {
+function quantityUp() {
     // Grabs value quantity of the item and adds one
     const quantityInput = this.previousElementSibling;
     let quantity = quantityInput.value;
@@ -154,7 +150,7 @@ const quantityUp = () => {
     updateLocalQuantity(item, quantity);
 }
 
-const quantityDown = () => {
+function quantityDown() {
     // Grabs value quantity of the item and adds one
     const quantityInput = this.nextElementSibling;
     let quantity = quantityInput.value;
@@ -253,3 +249,7 @@ const onLoad = () => {
         addItem(item, quantity, false);
     }
 }
+
+document.addEventListener('DOMContentLoaded', onLoad);
+addButton.addEventListener("click", addNewItem);
+clearButton.addEventListener("click", clearAll);
