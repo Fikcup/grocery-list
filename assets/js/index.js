@@ -37,12 +37,12 @@ const addItem = (title, quantity, saveLocally) => {
     itemDiv.appendChild(deleteBtn);
     deleteBtn.addEventListener("click", deleteItem);
 
-    // Quantity down button
-    const quantityDecreaseBtn = document.createElement("button");
-    quantityDecreaseBtn.innerHTML = "<i class='fas fa-caret-square-down'></i>";
-    quantityDecreaseBtn.classList.add("quantity-decrease-btn");
-    itemDiv.appendChild(quantityDecreaseBtn); 
-    quantityDecreaseBtn.addEventListener("click", quantityDown); 
+    // Quantity up button
+    const quantityIncreaseBtn = document.createElement("button");
+    quantityIncreaseBtn.innerHTML = "<i class='fas fa-caret-square-up'></i>";
+    quantityIncreaseBtn.classList.add("quantity-increase-btn");
+    itemDiv.appendChild(quantityIncreaseBtn);
+    quantityIncreaseBtn.addEventListener("click", quantityUp);
 
     // Quantity input field
     const quantityInput = document.createElement("input");
@@ -51,12 +51,12 @@ const addItem = (title, quantity, saveLocally) => {
     quantityInput.value = quantity;
     itemDiv.appendChild(quantityInput);
 
-    // Quantity up button
-    const quantityIncreaseBtn = document.createElement("button");
-    quantityIncreaseBtn.innerHTML = "<i class='fas fa-caret-square-up'></i>";
-    quantityIncreaseBtn.classList.add("quantity-increase-btn");
-    itemDiv.appendChild(quantityIncreaseBtn);
-    quantityIncreaseBtn.addEventListener("click", quantityUp);
+    // Quantity down button
+    const quantityDecreaseBtn = document.createElement("button");
+    quantityDecreaseBtn.innerHTML = "<i class='fas fa-caret-square-down'></i>";
+    quantityDecreaseBtn.classList.add("quantity-decrease-btn");
+    itemDiv.appendChild(quantityDecreaseBtn); 
+    quantityDecreaseBtn.addEventListener("click", quantityDown); 
 
     if (saveLocally) {
         // Add item to local storage
