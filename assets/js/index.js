@@ -96,13 +96,13 @@ function deleteItem() {
         }
 
         for (let i = 0; i < items.length; i++) {           
-            if (items[i] == itemRemove) {
+            if (items[i] === itemRemove) {
                 items.splice(i, 1);
                 quantities.splice(i, 1);
                 localStorage.setItem("items", JSON.stringify(items));
                 localStorage.setItem("quantities", JSON.stringify(quantities));
 
-                if (items == "") {
+                if (localStorage.getItem(items) === null) {
                     localStorage.clear();
                     console.log("Local storage cleared.");
                 }
